@@ -1,23 +1,15 @@
 const ires = require("../problem1");
 
-const res = (err, path) => {
-  if (err) {
-    console.log("Error");
-    console.error(err);
-  } else {
-    console.log("Success");
-    ires.deleteJSON(path,(err,pathtoDelete)=>{
-      if(err){
-        console.error(err);
-      }
-      else{
-        console.log("deleted");
-        console.log(pathtoDelete);
-      }
-    });
-   console.log(path);
-  }
-};
-
-ires.createJSON(res);
-
+ires
+  .createJSON()
+  .then((data) => {
+    console.log("files created are  " + data);
+    return ires.deleteJSON(data);
+  })
+  .then((result) => {
+    console.log("\n")
+    console.log("files deleted at  " + result);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
