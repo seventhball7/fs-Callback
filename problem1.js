@@ -12,7 +12,7 @@ const createJSON = () => {
         } else {
           let fileName = [];
           for (let i = 0; i < 10; i += 1) {
-            let name = Math.random().toString(36).substring(2, 6) + ".json";~
+            let name = Math.random().toString(36).substring(2, 6) + ".json";
             fileName.push(name);
           }
           let arr = [];
